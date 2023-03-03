@@ -15,15 +15,45 @@ import ReactDOM from 'react-dom';
       alert("Leran ReactJs Lifecyle");
     }
 
-    render(){
-         return <h1>{this.state.value} {this.state.name}</h1>
+    changevalue = () =>{
+          this.setState({value:"Modified Value"})  //updating new Value
     }
 
-    componentDidMount(){
+
+    deleteheader=()=>{
+      this.setState({value:false,name:false})
+    }
+    render(){
+         return <div>
+          <h1>{this.state.value} {this.state.name}</h1>
+          <br/>
+          <button type="button" onClick={this.changevalue}>ChangeValue</button>
+          <button type="button" onClick={this.deleteheader}>Deleteheader</button>
+          </div>
+    }
+
+    componentDidMount(){  // works after rendering
       setTimeout(()=>{
         this.setState({value:"ThankYou"})},5000)
        
     }
+
+    componentWillUpdate(){  //invoked whaenever a new update of value is there.
+      alert("Do you want update a new Value");
+    }
+
+    componentDidUpdate(){  // invoked if componentWillUpdate is invokes
+      document.getElementById("mydiv").innerHTML="New value updated successfully "+this.state.value;
+    }
+    
+    shouldComponentUpdate(){
+      return true;    //if given false no updats will be carrried out.
+    }
+
+    componentWillUnmount(){  //to delete
+          alert("Header");
+    }
+
 
 
 }
