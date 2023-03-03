@@ -4,26 +4,25 @@ import ReactDOM from 'react-dom';
 
 
 
-  class ReactState extends React.Component{
+  class LifeCycle extends React.Component{
     constructor() { //state can be  initialized only in constructor.
         super();   //super keyword is used to initize values and that values can be called in other methods.
-        this.state={initialvalue:"Welcome",name:"Guys"}   //creating state
+        this.state={value:"Welcome",name:"Guys"}   //creating state
 
     }
 
-    changevalue=()=>  { //arrow function
-          this.setState({initialvalue:"Thanks for changing"})
+    componentWillMount(){  // comes before render.comes only on first time page is rendered
+      alert("Leran ReactJs Lifecyle");
     }
-    render() {  // render method is to display in webpage
+
+    render(){
+         return <h1>{this.state.value} {this.state.name}</h1>
+    }
+
+
+}
     
-            return <div>
-                  <h1>{this.state.initialvalue } {this.state.name}</h1>
-                  <button type="button" onClick={this.changevalue}> ChangeValue</button>
-            </div> 
-    
-    }
-    }
 
 
     const root=ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<ReactState/>);
+    root.render(<LifeCycle/>);
