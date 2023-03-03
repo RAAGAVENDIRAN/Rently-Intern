@@ -19,6 +19,12 @@ import ReactDOM from 'react-dom';
          return <h1>{this.state.value} {this.state.name}</h1>
     }
 
+    componentDidMount(){
+      setTimeout(()=>{
+        this.setState({value:"ThankYou"})},5000)
+       
+    }
+
 
 }
     
