@@ -1,17 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+class ReactState extends React.Component{
+  constructor() { //state can be  initialized only in constructor.
+      super();   //super keyword is used to initize values and that values can be called in other methods.
+      this.state={initialvalue:"Welcome",name:"Guys"}   //creating state
+
+  }
+  render() {  // render method is to display in webpage
+  
+          return <div>
+                <h1>{this.state.initialvalue } {this.state.name}</h1>
+                <button type="button"> onClick={this.changeValue}</button>
+          </div> 
+  
+  }
+  }
+
+
+  const root=ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<ReactState/>);
