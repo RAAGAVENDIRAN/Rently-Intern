@@ -1,8 +1,14 @@
 import React from "react";
-import Counter from "./components/Counter";
+// import ClassTimer from "./components/ClassTimer";
+import HookTimer from "./components/Hook Timer";
 
 function App() {
-  return <Counter />;
+  return (
+    <>
+      {/* <ClassTimer /> */}
+      <HookTimer />
+    </>
+  );
 }
 
 export default App;
