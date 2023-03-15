@@ -1,9 +1,8 @@
 import React from "react";
-
-import ParentComponent from "./components/parentComponent";
+import Counter from "./components/Counter";
 
 function App() {
-  return <ParentComponent />;
+  return <Counter />;
 }
 
 export default App;
