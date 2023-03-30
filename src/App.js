@@ -1,48 +1,18 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-} from "./features/counter/counterSlice";
-import "./App.css";
+import { increment, decrement } from "./actions";
 
 function App() {
-  const count = useSelector((state) => state.counter.value);
+  const Counter = useSelector((state) => state.counter);
+  const isLogged = useSelector((state) => state.isLogged);
   const dispatch = useDispatch();
-  const [incrementAmount, setIncrementAmount] = useState(2);
+
   return (
-    <div className="App">
-      <h1>{count}</h1>
-      <input
-        type="text"
-        value={incrementAmount}
-        onChange={(e) => setIncrementAmount(Number(e.target.value))}
-      />
-      <button
-        type="submit"
-        onClick={() => {
-          dispatch(increment());
-        }}
-      >
-        Increment
-      </button>
-      <button
-        type="submit"
-        onClick={() => {
-          dispatch(decrement());
-        }}
-      >
-        Decrement
-      </button>
-      <button
-        type="submit"
-        onClick={() => {
-          dispatch(incrementByAmount(incrementAmount));
-        }}
-      >
-        Increment by Input Value
-      </button>
+    <div>
+      <h1>Counter {Counter}</h1>
+      <button onClick={() => dispatch(increment(2))}>+</button>
+      <button onClick={() => dispatch(decrement(2))}>-</button>
+      {isLogged ? <h3>Valuable Information I should't see</h3> : ""}
     </div>
   );
 }
